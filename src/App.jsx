@@ -1,11 +1,11 @@
 // App.jsx
 import React, { useEffect } from 'react';
 import './App.css';
-import Menu from './components/Menu';
-import Intro from './components/Intro';
-import About from './components/About';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+import Menu from './components/menu';
+import Intro from './components/intro';
+import About from './components/about';
+import Projects from './components/projects';
+import Contact from './components/contact';
 
 function App() {
   useEffect(() => {
