@@ -1,12 +1,27 @@
 // App.jsx
+import React, { useEffect } from 'react';
 import './App.css';
-import Menu from './components/menu';
-import Intro from './components/intro';
-import About from './components/about';
-import Projects from './components/projects';
-import Contact from './components/contact';
+import Menu from './components/Menu';
+import Intro from './components/Intro';
+import About from './components/About';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 function App() {
+  useEffect(() => {
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          entry.target.classList.toggle('visible', entry.isIntersecting);
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    sections.forEach(section => observer.observe(section));
+  }, []);
+
   return (
     <>
       <Menu />
