@@ -7,12 +7,17 @@ import {
 } from "react-icons/fa";
 import { SiFlask } from "react-icons/si";
 
+// Función mejorada para manejar niveles con decimales (ej. 3.5)
 function renderStars(level) {
   const stars = [];
   for (let i = 1; i <= 5; i++) {
-    if (i <= level) stars.push(<FaStar key={i} className="star full" />);
-    else if (i - level === 0.5) stars.push(<FaStarHalfAlt key={i} className="star half" />);
-    else stars.push(<FaRegStar key={i} className="star empty" />);
+    if (i <= level) {
+      stars.push(<FaStar key={i} className="star full" />);
+    } else if (i - 0.5 <= level) {
+      stars.push(<FaStarHalfAlt key={i} className="star half" />);
+    } else {
+      stars.push(<FaRegStar key={i} className="star empty" />);
+    }
   }
   return stars;
 }
@@ -33,7 +38,7 @@ function About() {
   ];
 
   return (
-    <section id="about" className="about-section d-flex align-items-center justify-content-center">
+    <section id="about" className="about-section">
       <div className="container py-5">
         <div className="row align-items-center">
           
@@ -42,14 +47,15 @@ function About() {
             <div className="about-text text-center text-lg-start">
               <h2 className="fw-bold mb-3">Sobre mí</h2>
               <p>
-                Desde pequeño me ha fascinado descubrir cómo funcionan las cosas, y esa curiosidad fue el inicio de mi camino en la tecnología.
-                Hoy soy estudiante de <strong>7.º semestre de Ingeniería de Software</strong> en la <strong>Universidad CIAF, Pereira (Risaralda, Colombia)</strong>,
-                enfocado en el <strong>desarrollo de software colaborativo</strong> y la mejora continua.
+                Desde pequeño me ha fascinado descubrir cómo funcionan las cosas, y esa curiosidad se convirtió en mi motor para adentrarme en el mundo de la tecnología.
+                Hoy curso el <strong>séptimo semestre de Ingeniería de Software</strong> en la <strong>Universidad CIAF, Pereira (Risaralda, Colombia)</strong>,
+                donde no solo aprendo conceptos, sino que cultivo una pasión que crece cada día: <strong>crear soluciones reales con código</strong>.
               </p>
               <p>
-                Me defino como una persona <strong>proactiva, adaptable y apasionada por aprender</strong>, siempre buscando nuevos retos que impulsen
-                mi crecimiento profesional. Actualmente, me encuentro en la búsqueda de <strong>prácticas o una oportunidad laboral</strong> donde pueda
-                aplicar mis conocimientos, seguir aprendiendo y contribuir con ideas que generen impacto real.
+                Me encanta aprender, enfrentar desafíos que me sacan de mi zona de confort y descubrir nuevas formas de resolver problemas. 
+                Para mí, cada bug, cada proyecto y cada línea de código son una oportunidad para <strong>mejorar como programador y como persona</strong>.
+                Actualmente, busco una oportunidad para realizar mis <strong>prácticas profesionales o mi primera experiencia laboral</strong>, 
+                donde pueda aportar con entusiasmo, seguir aprendiendo sin parar y crecer junto a un equipo que comparta la misma pasión por construir algo significativo.
               </p>
             </div>
           </div>
@@ -84,7 +90,6 @@ function About() {
                   ))}
                 </div>
               </div>
-
             </div>
           </div>
         </div>

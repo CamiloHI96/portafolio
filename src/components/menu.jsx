@@ -14,7 +14,7 @@ function Menu({ onNavigate, currentView }) {
       <div className="container">
         {/* Logo = botón de inicio */}
         <a
-          className="navbar-brand fw-bold"
+          className="navbar-brand fw-bold text-black"
           href="#"
           onClick={(e) => {
             e.preventDefault();

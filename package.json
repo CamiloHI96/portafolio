@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
+    "deploy:obfuscated": "npm run build:obfuscated && npm run deploy",
     "build:obfuscated": "vite build && node obfuscate.js"
   },
   "dependencies": {

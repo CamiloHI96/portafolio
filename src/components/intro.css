@@ -2,29 +2,90 @@
 
 .intro-content {
   text-align: center;
-  max-width: 480px;
+  max-width: 600px;
   margin: 0 auto;
+  padding: 0 1.5rem;
+  font-family: 'Courier New', monospace, sans-serif;
+  color: #e0e0e0;
 }
 
+/* Título */
 .intro-content h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #0d6efd;
-  margin-bottom: 1rem;
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #00ffaa;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(0, 255, 170, 0.7);
 }
 
-.intro-content p {
+/* Cursor parpadeante */
+.cursor {
+  display: inline-block;
+  width: 12px;
+  height: 1.1em;
+  background-color: #00ffaa;
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Terminal - ahora con <div>, no <pre> */
+.terminal-text {
+  font-family: 'Courier New', monospace;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #555;
+  color: #00ff41;
+  background-color: rgba(0, 10, 20, 0.4);
+  padding: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 65, 0.3);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+  text-align: left;
+  margin: 1.5rem auto 0;
+
+  /* Tamaño controlado */
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+
+  /* ✅ Altura mínima fija para evitar saltos de layout */
+  min-height: 9rem; /* ≈144px – suficiente para 3 líneas + padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
+/* Responsive: ajustes en móviles */
 @media (max-width: 768px) {
   .intro-content h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
-  .intro-content p {
+  .terminal-text {
     font-size: 1rem;
+    padding: 1rem;
+    max-width: 100%;
+    min-height: 8rem; /* ligeramente menor en tablet/móvil */
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-content h1 {
+    font-size: 1.9rem;
+  }
+
+  .terminal-text {
+    font-size: 0.95rem;
+    min-height: 7.5rem; /* ajuste fino para pantallas pequeñas */
   }
 }

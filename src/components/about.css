@@ -2,57 +2,129 @@
 
 .about-section {
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #f8fafc, #e9eff5);
-  padding-top: 100px;
-  padding-bottom: 60px;
+  width: 100vw;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  padding-top: 72px;
+}
+
+/* Efecto sutil de scanlines (opcional, puedes quitarlo si no te gusta) */
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 65, 0.02) 2px,
+    rgba(0, 255, 65, 0.02) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Contenedor central con estilo retro pero limpio */
+.about-section .container {
+  position: relative;
+  z-index: 2;
+  background: rgba(20, 20, 30, 0.85);
+  border: 2px solid rgba(0, 255, 65, 0.3);
+  border-radius: 8px;
+  padding: 2rem !important;
+  max-width: 1000px;
+  width: 100%;
+  color: #ffffff;
+  font-family: 'Courier New', monospace, sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 255, 65, 0.1);
+}
+
+/* Títulos */
+.about-text h2 {
+  font-size: 2rem;
+  color: #00ffaa;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.skills h4 {
+  font-size: 1.4rem;
+  color: #00ccff;
+  margin-bottom: 1.2rem;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.skill-category h5 {
+  font-size: 1.1rem;
+  color: #ff00ff;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Texto */
 .about-text p {
-  color: #444;
+  color: #d0d0d0;
   line-height: 1.7;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* Íconos y habilidades */
+.about-text strong {
+  color: #00ffaa;
+  font-weight: bold;
+}
+
+/* Íconos y estrellas */
 .skill-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+  margin-bottom: 0.6rem;
+  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.5));
 }
 
 .stars {
   display: flex;
   justify-content: center;
-  gap: 2px;
+  gap: 3px;
+  margin-top: 0.3rem;
 }
 
 .star {
   color: gold;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
 }
 
-/* Ajustes responsive */
+/* Responsive */
+@media (max-width: 992px) {
+  .about-section .container {
+    padding: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .about-section {
-    text-align: center;
-    padding: 100px 1rem 60px;
+  .about-text,
+  .skills {
+    text-align: center !important;
   }
 
-  .skill-icon {
-    font-size: 1.8rem;
+  .about-text h2 {
+    font-size: 1.6rem;
   }
 
-  .stars {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .skill-icon {
-    font-size: 1.5rem;
-  }
-
-  .stars .star {
-    font-size: 0.9rem;
+  .skills h4 {
+    font-size: 1.2rem;
   }
 }
