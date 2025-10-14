@@ -1,14 +1,13 @@
 // src/components/Intro.jsx
-import React from 'react';
+import React from "react";
+import "./intro.css";
 
 function Intro() {
   return (
-    <section id="intro" className="bg-light text-center d-flex flex-column justify-content-center">
-      <div className="container">
-        <h1 className="display-3 fw-bold">¡Hola! Soy Camilo</h1>
-        <p className="lead">Desarrollador web apasionado por crear experiencias increíbles.</p>
-      </div>
-    </section>
+    <div className="intro-content">
+      <h1>¡Hola! Soy Camilo</h1>
+      <p>Desarrollador web apasionado por crear experiencias increíbles.</p>
+    </div>
   );
 }
 

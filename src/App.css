@@ -1,42 +1,65 @@
-/* App.css */
+/* src/App.css */
 
-/* Hace que cada sección ocupe toda la pantalla */
-section {
+.app-container {
+  background-color: #f9fafc;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  scroll-snap-align: start;
 }
 
-/* Habilita el efecto de scroll por secciones */
-html {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+/* === Pantalla de inicio (Intro + Cards) === */
+.home-layout {
+  padding: 2rem;
 }
 
-/* Fija el navbar */
-.navbar {
-  position: fixed;
-  top: 0;
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
   width: 100%;
-  z-index: 10;
+  max-width: 500px;
 }
 
-/* Da espacio arriba para que el contenido no quede debajo del navbar */
-section {
-  padding-top: 70px;
+/* === Cada sección ocupa 100% pantalla === */
+.section-view {
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  background-color: #fff;
 }
 
-/* Transiciones entre section */
-section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s ease-in-out;
+/* === Responsividad === */
+@media (max-width: 768px) {
+  .home-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cards-grid {
+    max-width: 100%;
+    grid-template-columns: 1fr;
+  }
 }
 
-section.visible {
+/* === Subrayar enlace activo del menú === */
+.nav-link.active {
+  color: #0d6efd !important;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0d6efd;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animación al cambiar de sección */
+.section-view {
+  transition: opacity 0.4s ease;
   opacity: 1;
-  transform: translateY(0);
 }

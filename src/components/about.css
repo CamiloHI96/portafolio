@@ -1,0 +1,58 @@
+/* src/components/about.css */
+
+.about-section {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f8fafc, #e9eff5);
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+/* Texto */
+.about-text p {
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* Íconos y habilidades */
+.skill-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
+.star {
+  color: gold;
+  font-size: 1rem;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+  .about-section {
+    text-align: center;
+    padding: 100px 1rem 60px;
+  }
+
+  .skill-icon {
+    font-size: 1.8rem;
+  }
+
+  .stars {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-icon {
+    font-size: 1.5rem;
+  }
+
+  .stars .star {
+    font-size: 0.9rem;
+  }
+}
