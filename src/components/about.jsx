@@ -43,7 +43,7 @@ function About() {
               <h2 className="fw-bold mb-3">Sobre mí</h2>
               <p>
                 Desde pequeño me ha fascinado descubrir cómo funcionan las cosas, y esa curiosidad fue el inicio de mi camino en la tecnología.
-                Hoy soy estudiante de <strong>7.º semestre de Ingeniería de Software</strong> en el <strong>CIAF, Pereira (Risaralda, Colombia)</strong>,
+                Hoy soy estudiante de <strong>7.º semestre de Ingeniería de Software</strong> en el <strong>Universidad CIAF, Pereira (Risaralda, Colombia)</strong>,
                 enfocado en el <strong>desarrollo de software colaborativo</strong> y la mejora continua.
               </p>
               <p>
