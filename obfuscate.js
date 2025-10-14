@@ -2,10 +2,14 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { createRequire } from 'module';
 
-// Soporte para ES Modules (porque usas "type": "module")
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const require = createRequire(import.meta.url);
+
+// Cargar javascript-obfuscator como CommonJS
+const JavaScriptObfuscator = require('javascript-obfuscator');
 
 const jsDir = path.resolve(__dirname, 'dist/assets');
 
@@ -29,8 +33,7 @@ for (const file of files) {
 
   const code = fs.readFileSync(filePath, 'utf8');
 
-  // Configuración segura para React + Vite
-  const obfuscatedCode = (await import('javascript-obfuscator')).obfuscate(code, {
+  const obfuscatedCode = JavaScriptObfuscator.obfuscate(code, {
     compact: true,
     controlFlowFlattening: true,
     controlFlowFlatteningThreshold: 0.75,
@@ -41,8 +44,7 @@ for (const file of files) {
     stringArrayThreshold: 0.75,
     identifierNamesGenerator: 'hexadecimal',
     rotateStringArray: true,
-    selfDefending: true, // Hace más difícil el debug
-    // ¡NO activar renameGlobals! Rompe React/Vite
+    selfDefending: true,
   });
 
   fs.writeFileSync(filePath, obfuscatedCode.getObfuscatedCode());
