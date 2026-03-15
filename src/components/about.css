@@ -114,6 +114,68 @@
   font-size: 1.1rem;
 }
 
+.about-extra {
+  margin-top: 1.5rem;
+}
+
+.about-panel {
+  height: 100%;
+  padding: 1.35rem;
+  border-radius: 18px;
+  border: 1px solid rgba(124, 243, 255, 0.15);
+  background: rgba(10, 4, 24, 0.48);
+}
+
+.about-panel h4 {
+  color: #7cf3ff;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.focus-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #eddcf7;
+}
+
+.focus-list li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.9rem;
+}
+
+.timeline-card {
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 119, 200, 0.16);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.timeline-card h5 {
+  margin: 0 0 0.45rem;
+  color: #ffb2df;
+  font-size: 1rem;
+}
+
+.timeline-card span {
+  display: block;
+  color: #7cf3ff;
+  font-size: 0.88rem;
+  margin-bottom: 0.55rem;
+}
+
+.timeline-card p {
+  margin: 0;
+  color: #eddcf7;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
 @media (max-width: 992px) {
   .about-section .container {
     padding: 1.5rem;
@@ -132,5 +194,19 @@
 
   .skills h4 {
     font-size: 1.2rem;
+  }
+
+  .about-highlights {
+    justify-content: center;
+  }
+
+  .about-panel {
+    padding: 1.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-grid {
+    grid-template-columns: 1fr;
   }
 }

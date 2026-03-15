@@ -103,4 +103,10 @@
   .contact-section h2 {
     font-size: 1.7rem;
   }
+
+  .contact-link,
+  .btn-contact {
+    width: 100%;
+    justify-content: center;
+  }
 }

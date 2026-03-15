@@ -216,6 +216,17 @@
   border-color: rgba(124, 243, 255, 0.55);
 }
 
+.project-link.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.project-link.is-disabled:hover {
+  transform: none;
+  background: rgba(124, 243, 255, 0.08);
+  border-color: rgba(124, 243, 255, 0.35);
+}
+
 @media (max-width: 768px) {
   .projects-shell {
     padding: 1.5rem 1rem 2.5rem;
@@ -227,5 +238,19 @@
 
   .project-top {
     flex-direction: column;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .project-link {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }

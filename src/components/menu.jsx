@@ -1,13 +1,18 @@
 // src/components/Menu.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Menu({ onNavigate, currentView }) {
+  const [isOpen, setIsOpen] = useState(false);
   const links = [
     { id: "about", label: "Sobre mí" },
     { id: "cv", label: "Hoja de vida (CV)" },
     { id: "projects", label: "Proyectos" },
     { id: "contact", label: "Contacto" },
   ];
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [currentView]);
 
   return (
     <nav className="navbar navbar-expand-lg fixed-top shadow-sm portfolio-navbar">
@@ -26,16 +31,18 @@ function Menu({ onNavigate, currentView }) {
         <button
           className="navbar-toggler custom-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
           aria-controls="navbarNav"
-          aria-expanded="false"
+          aria-expanded={isOpen}
           aria-label="Toggle navigation"
+          onClick={() => setIsOpen((prev) => !prev)}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div
+          className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}
+          id="navbarNav"
+        >
           <ul className="navbar-nav ms-auto">
             {links.map((link) => (
               <li className="nav-item" key={link.id}>

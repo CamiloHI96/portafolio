@@ -1,5 +1,5 @@
 // src/App.jsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -10,11 +10,42 @@ import Projects from "./components/projects";
 import Contact from "./components/contact";
 import Card from "./components/cards";
 
+function getViewFromHash(hash) {
+  const normalizedHash = hash.replace(/^#\/?/, "");
+  const allowedViews = new Set(["home", "about", "cv", "projects", "contact"]);
+
+  if (!normalizedHash) {
+    return "home";
+  }
+
+  return allowedViews.has(normalizedHash) ? normalizedHash : "home";
+}
+
 function App() {
-  const [currentView, setCurrentView] = useState("home");
+  const [currentView, setCurrentView] = useState(() =>
+    getViewFromHash(window.location.hash)
+  );
   const cvUrl = `${import.meta.env.BASE_URL}Camilo-Hernandez-CV.pdf`;
 
+  useEffect(() => {
+    const syncViewWithHash = () => {
+      setCurrentView(getViewFromHash(window.location.hash));
+    };
+
+    window.addEventListener("hashchange", syncViewWithHash);
+    syncViewWithHash();
+
+    return () => window.removeEventListener("hashchange", syncViewWithHash);
+  }, []);
+
   const handleNavigate = (view) => {
+    const nextHash = view === "home" ? "#/" : `#/${view}`;
+
+    if (window.location.hash !== nextHash) {
+      window.location.hash = nextHash;
+      return;
+    }
+
     setCurrentView(view);
   };
 
@@ -69,6 +100,10 @@ function App() {
                   Descargar PDF
                 </a>
               </div>
+              <p className="cv-mobile-note">
+                En moviles y tablets compactas te recomiendo abrir el PDF en una
+                pestaña nueva para verlo con mas comodidad.
+              </p>
             </div>
 
             <div className="cv-preview">

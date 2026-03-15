@@ -33,6 +33,34 @@ function renderStars(level) {
 }
 
 function About() {
+  const qualityFocus = [
+    "Validacion de APIs y flujos con Postman.",
+    "Ejecucion de pruebas funcionales y seguimiento de bugs.",
+    "Automatizacion de tareas repetitivas para ahorrar tiempo.",
+    "Apoyo entre frontend, backend y control de calidad.",
+  ];
+
+  const experienceItems = [
+    {
+      title: "Bootcamp MinTIC 2024",
+      subtitle: "Proyecto Energias Limpias",
+      description:
+        "Participe como desarrollador web construyendo vistas responsive, rutas en Flask, procesamiento de datos CSV y despliegue del proyecto en Render.",
+    },
+    {
+      title: "Universidad CIAF",
+      subtitle: "8vo semestre de Ingenieria de Software",
+      description:
+        "Formacion orientada a desarrollo de software, bases de datos, logica de negocio y trabajo en equipo con enfoque practico.",
+    },
+    {
+      title: "Formacion complementaria",
+      subtitle: "QA, APIs y automatizaciones",
+      description:
+        "He fortalecido validacion de APIs, pruebas funcionales, herramientas de versionamiento y automatizacion de procesos tecnicos.",
+    },
+  ];
+
   const frontendSkills = [
     { icon: <FaHtml5 className="skill-icon text-danger" />, name: "HTML", level: 4 },
     { icon: <FaCss3Alt className="skill-icon text-primary" />, name: "CSS", level: 3 },
@@ -127,6 +155,34 @@ function About() {
                     </div>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="about-extra row g-4 mt-1">
+          <div className="col-lg-5">
+            <div className="about-panel">
+              <h4>Que puedo aportar</h4>
+              <ul className="focus-list">
+                {qualityFocus.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="col-lg-7">
+            <div className="about-panel">
+              <h4>Experiencia y formacion</h4>
+              <div className="timeline-grid">
+                {experienceItems.map((item) => (
+                  <article key={item.title} className="timeline-card">
+                    <h5>{item.title}</h5>
+                    <span>{item.subtitle}</span>
+                    <p>{item.description}</p>
+                  </article>
+                ))}
               </div>
             </div>
           </div>

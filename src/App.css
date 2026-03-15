@@ -71,6 +71,10 @@
   letter-spacing: 0.16em;
 }
 
+.portfolio-navbar .container {
+  gap: 0.8rem;
+}
+
 .custom-toggler {
   border-color: rgba(255, 72, 173, 0.35);
 }
@@ -91,6 +95,10 @@
 
 .nav-link-custom:hover {
   color: #7cf3ff !important;
+}
+
+.navbar-collapse.show {
+  display: block;
 }
 
 .home-layout > div {
@@ -170,6 +178,13 @@
   line-height: 1.7;
 }
 
+.cv-mobile-note {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 0.92rem;
+  color: #cdbde6;
+}
+
 .cv-actions {
   display: flex;
   flex-wrap: wrap;
@@ -239,6 +254,22 @@
   .cv-shell {
     grid-template-columns: 1fr;
   }
+
+  .portfolio-navbar .navbar-collapse {
+    width: 100%;
+    padding: 0.85rem 0 0.25rem;
+  }
+
+  .portfolio-navbar .navbar-nav {
+    gap: 0.35rem;
+  }
+
+  .portfolio-navbar .nav-link-custom {
+    width: 100%;
+    text-align: left;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -264,13 +295,42 @@
     margin-top: 1.5rem;
   }
 
-  .cv-preview iframe {
-    min-height: 55vh;
+  .cv-shell {
+    gap: 1rem;
+  }
+
+  .cv-preview {
+    display: none;
+  }
+
+  .cv-copy {
+    padding: 1.3rem;
+  }
+
+  .cv-actions {
+    flex-direction: column;
+  }
+
+  .cv-button {
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
+  .portfolio-navbar .navbar-brand {
+    letter-spacing: 0.09em;
+    font-size: 0.98rem;
+  }
+
   .cards-grid {
     grid-template-columns: 1fr;
+  }
+
+  .home-layout > div {
+    padding: 0 0.8rem;
+  }
+
+  .section-view {
+    padding-top: 4.6rem;
   }
 }

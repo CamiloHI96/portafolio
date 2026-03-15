@@ -47,10 +47,18 @@ function Projects() {
                   Ver GitHub
                 </a>
                 <a
-                  className="project-link secondary"
+                  className={`project-link secondary ${
+                    project.demo === "#" ? "is-disabled" : ""
+                  }`}
                   href={project.demo}
-                  target="_blank"
-                  rel="noreferrer"
+                  target={project.demo === "#" ? undefined : "_blank"}
+                  rel={project.demo === "#" ? undefined : "noreferrer"}
+                  aria-disabled={project.demo === "#"}
+                  onClick={(event) => {
+                    if (project.demo === "#") {
+                      event.preventDefault();
+                    }
+                  }}
                 >
                   {project.demo === "#" ? "Proximamente" : "Ver demo"}
                 </a>
