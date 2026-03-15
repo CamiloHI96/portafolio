@@ -12,7 +12,7 @@ import Card from "./components/cards";
 
 function App() {
   const [currentView, setCurrentView] = useState("home");
-  const cvUrl = "/Camilo-Hernandez-CV.pdf";
+  const cvUrl = `${import.meta.env.BASE_URL}Camilo-Hernandez-CV.pdf`;
 
   const handleNavigate = (view) => {
     setCurrentView(view);
