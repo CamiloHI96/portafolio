@@ -37,7 +37,7 @@ function Contact() {
 
         <div className="text-center">
           <a
-            href="camilohi.1196@gmail.com"
+            href="mailto:camilohi.1196@gmail.com"
             className="btn-contact d-inline-flex align-items-center"
           >
             <FaEnvelope className="me-2" />

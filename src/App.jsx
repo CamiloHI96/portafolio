@@ -12,6 +12,7 @@ import Card from "./components/cards";
 
 function App() {
   const [currentView, setCurrentView] = useState("home");
+  const cvUrl = "/Camilo-Hernandez-CV.pdf";
 
   const handleNavigate = (view) => {
     setCurrentView(view);
@@ -45,15 +46,37 @@ function App() {
       {currentView === "about" && <About />}
 
       {currentView === "cv" && (
-        <section className="section-view with-navbar">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-lg-8 text-center">
-                <h2 className="mb-4">Hoja de vida</h2>
-                <p className="lead">
-                  Próximamente se mostrará mi CV aquí.
-                </p>
+        <section className="section-view with-navbar cv-section">
+          <div className="cv-shell">
+            <div className="cv-copy">
+              <span className="section-chip">Hoja de vida</span>
+              <h2>CV y perfil profesional</h2>
+              <p>
+                Perfil enfocado en desarrollo web fullstack, automatizaciones y
+                QA Junior, con interes en aportar desde practicas o primeros
+                roles de desarrollo.
+              </p>
+              <div className="cv-actions">
+                <a
+                  className="cv-button primary"
+                  href={cvUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ver CV
+                </a>
+                <a className="cv-button secondary" href={cvUrl} download>
+                  Descargar PDF
+                </a>
               </div>
+            </div>
+
+            <div className="cv-preview">
+              <iframe
+                title="Hoja de vida de Camilo Hernandez"
+                src={cvUrl}
+                loading="lazy"
+              />
             </div>
           </div>
         </section>

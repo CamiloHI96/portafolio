@@ -1,12 +1,15 @@
 /* src/App.css */
 
 .app-container {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background:
+    radial-gradient(circle at top, rgba(255, 121, 198, 0.18), transparent 32%),
+    linear-gradient(180deg, #12021d 0%, #1b0630 35%, #090014 100%);
   min-height: 100vh;
   color: white;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* === Pantalla de inicio (Intro + Cards) === */
 .home-layout {
   padding: 0;
   min-height: 100vh;
@@ -18,82 +21,204 @@
   overflow: hidden;
 }
 
-/* Efecto CRT sutil */
 .home-layout::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent,
-    transparent 2px,
-    rgba(0, 255, 65, 0.02) 2px,
-    rgba(0, 255, 65, 0.02) 4px
-  );
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 90px 90px;
+  opacity: 0.18;
+  transform: perspective(700px) rotateX(78deg) translateY(24%);
+  transform-origin: center bottom;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
+}
+
+.home-layout::after {
+  content: "";
+  position: absolute;
+  top: 9%;
+  left: 50%;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 225, 120, 0.95) 0 10px,
+      rgba(255, 122, 89, 0.95) 10px 18px
+    );
+  box-shadow:
+    0 0 40px rgba(255, 99, 132, 0.25),
+    0 0 90px rgba(255, 153, 51, 0.18);
+  filter: blur(0.2px);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.portfolio-navbar {
+  background: rgba(13, 5, 31, 0.82);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 72, 173, 0.25);
+}
+
+.portfolio-navbar .navbar-brand {
+  color: #ff77c8;
+  letter-spacing: 0.16em;
+}
+
+.custom-toggler {
+  border-color: rgba(255, 72, 173, 0.35);
+}
+
+.custom-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 72, 173, 0.15);
+}
+
+.custom-toggler .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.nav-link-custom {
+  color: #ffd7f1 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nav-link-custom:hover {
+  color: #7cf3ff !important;
 }
 
 .home-layout > div {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1180px;
   padding: 0 1.5rem;
 }
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* ← más pequeñas */
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 1.2rem;
   width: 100%;
-  max-width: 400px;
+  max-width: 460px;
   margin-top: 2rem;
 }
 
-/* === Cada sección ocupa 100% pantalla === */
 .section-view {
   min-height: 100vh;
   width: 100%;
-  padding: 2rem;
-  background-color: #fff;
-  color: #333; /* Texto oscuro sobre fondo blanco */
+  padding: 5.5rem 1.2rem 2rem;
+  background:
+    radial-gradient(circle at top, rgba(255, 121, 198, 0.12), transparent 28%),
+    linear-gradient(180deg, #10011d 0%, #160326 38%, #090014 100%);
+  color: #f7f0ff;
 }
 
-/* === Responsividad === */
-@media (max-width: 768px) {
-  .section-view {
-    padding: 2.5rem 1.5rem !important;
-  }
+.section-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 119, 200, 0.35);
+  background: rgba(255, 119, 200, 0.08);
+  color: #ff9fda;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  margin-bottom: 1rem;
 }
 
-@media (max-width: 768px) {
-  .home-layout {
-    flex-direction: column;
-    text-align: center;
-    padding:1rem 1rem;
-  }
-
-  .cards-grid {
-    max-width: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 1.5rem;
-  }
-
+.cv-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (max-width: 480px) {
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
+.cv-shell {
+  width: 100%;
+  max-width: 1140px;
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 1.4rem;
 }
 
-/* === Subrayar enlace activo del menú === */
+.cv-copy,
+.cv-preview {
+  background: rgba(17, 8, 35, 0.82);
+  border: 1px solid rgba(255, 72, 173, 0.22);
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(7, 2, 17, 0.45);
+}
+
+.cv-copy {
+  padding: 1.6rem;
+}
+
+.cv-copy h2 {
+  color: #ff77c8;
+  margin-bottom: 1rem;
+}
+
+.cv-copy p {
+  color: #ead8ff;
+  line-height: 1.7;
+}
+
+.cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+
+.cv-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 130px;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cv-button.primary {
+  background: linear-gradient(90deg, #ff4db8, #ff8a5b);
+  color: #160326;
+}
+
+.cv-button.secondary {
+  border: 1px solid rgba(124, 243, 255, 0.35);
+  color: #7cf3ff;
+  background: rgba(124, 243, 255, 0.08);
+}
+
+.cv-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 77, 184, 0.16);
+}
+
+.cv-preview {
+  padding: 0.8rem;
+}
+
+.cv-preview iframe {
+  width: 100%;
+  min-height: 72vh;
+  border: 0;
+  border-radius: 14px;
+  background: #fff;
+}
+
 .nav-link.active {
-  color: #00ffaa !important;
+  color: #7cf3ff !important;
   font-weight: 600;
   position: relative;
 }
@@ -105,13 +230,47 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #00ffaa;
+  background: linear-gradient(90deg, #ff4db8, #7cf3ff);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
-/* Animación al cambiar de sección */
-.section-view {
-  transition: opacity 0.4s ease;
-  opacity: 1;
+@media (max-width: 992px) {
+  .cv-shell {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-view {
+    padding: 5rem 1rem 1.5rem;
+  }
+
+  .home-layout {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .home-layout::after {
+    width: 200px;
+    height: 200px;
+    top: 11%;
+  }
+
+  .cards-grid {
+    max-width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 1.5rem;
+  }
+
+  .cv-preview iframe {
+    min-height: 55vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
 }

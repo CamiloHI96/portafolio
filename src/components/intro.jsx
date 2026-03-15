@@ -3,11 +3,10 @@ import React, { useState, useEffect } from "react";
 import "./intro.css";
 
 function Intro() {
-  // Texto del terminal (con saltos de línea explícitos)
   const terminalLines = [
-    '> npm install pasión',
-    '> git commit -m "Construyendo el futuro"',
-    '> ./deploy --dreams'
+    "> role: Fullstack Jr / QA Junior",
+    "> focus: web apps + automatizaciones",
+    "> status: construyendo proyectos reales",
   ];
 
   const [displayedLines, setDisplayedLines] = useState([]);
@@ -45,10 +44,14 @@ function Intro() {
   return (
     <div className="intro-content">
       <h1>
-        ¡Hola! <br />
-        Soy Camilo Hernandez
+        Hola, soy <br />
+        Camilo Hernandez
         <span className="cursor">█</span>
       </h1>
+      <p className="intro-kicker">
+        Desarrollador Fullstack Jr en formacion, cursando 8vo semestre de
+        Ingenieria de Software.
+      </p>
       <div className="terminal-text">
         {displayedLines.map((line, i) => (
           <div key={i}>{line}</div>

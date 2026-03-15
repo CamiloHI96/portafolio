@@ -10,22 +10,21 @@ function Menu({ onNavigate, currentView }) {
   ];
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <nav className="navbar navbar-expand-lg fixed-top shadow-sm portfolio-navbar">
       <div className="container">
-        {/* Logo = botón de inicio */}
         <a
-          className="navbar-brand fw-bold text-black"
+          className="navbar-brand fw-bold"
           href="#"
           onClick={(e) => {
             e.preventDefault();
             onNavigate("home");
           }}
         >
-          Mi Portafolio
+          CAMILO.EXE
         </a>
 
         <button
-          className="navbar-toggler"
+          className="navbar-toggler custom-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -41,7 +40,7 @@ function Menu({ onNavigate, currentView }) {
             {links.map((link) => (
               <li className="nav-item" key={link.id}>
                 <button
-                  className={`btn nav-link ${
+                  className={`btn nav-link nav-link-custom ${
                     currentView === link.id ? "active" : ""
                   }`}
                   onClick={() => onNavigate(link.id)}
